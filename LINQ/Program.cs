@@ -153,6 +153,8 @@ namespace LINQ
             }
 
 
+            // SKAICIU UZDUOTIS
+
             int MinSkaicius = -100;
             int MaxSkaicius = 100;
             int[] randomMasyvas = new int[20];
@@ -162,11 +164,28 @@ namespace LINQ
                 randomMasyvas[i] = randomNumber.Next(MinSkaicius, MaxSkaicius);
             }
 
+            var neigiamiSkaiciai = 0;
+            var teigiamiSkaiciai = 0;
             Console.WriteLine("Masyvas: {0}", string.Join(", ", randomMasyvas));
 
-            Console.WriteLine("Neigiami skaiciai: {0}", randomMasyvas.Distinct().Where(s => s < 0).Count());
+            Console.WriteLine("Neigiami skaiciai: {0}", neigiamiSkaiciai = randomMasyvas.Distinct().Where(s => s < 0).Count());
 
-            Console.WriteLine("Teigiami skaiciai: {0}", randomMasyvas.Distinct().Where(s => s > 0).Count());
+            Console.WriteLine("Teigiami skaiciai: {0}", teigiamiSkaiciai = randomMasyvas.Distinct().Where(s => s > 0).Count());
+
+            if (neigiamiSkaiciai > teigiamiSkaiciai)
+            {
+                Console.WriteLine("Neigiamu skaiciu daugiau");
+            }
+            if (neigiamiSkaiciai < teigiamiSkaiciai)
+            {
+                Console.WriteLine("Teigiamu skaiciu daugiau");
+            }
+            if (neigiamiSkaiciai == teigiamiSkaiciai)
+            {
+                Console.WriteLine("Teigiamu ir neigiamu skaiciu kiekis yra vienodas");
+            }
+
+
         }
 
     }
